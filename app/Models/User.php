@@ -28,6 +28,11 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = [
-        'password', 'role'
+        'password', 'role', 'updated_at', 'created_at'
     ];
+
+    public function hasRole($role)
+    {
+        return $this->role == $role;
+    }
 }

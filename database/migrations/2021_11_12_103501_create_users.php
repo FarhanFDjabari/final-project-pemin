@@ -14,10 +14,12 @@ class CreateUsers extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->integerIncrements('id');
             // This is where you type your code
-
-            $table->enum('role', ['user', 'admin']);
+            $table->String('name');
+            $table->String('email')->unique();
+            $table->String('password');
+            $table->enum('role', ['user', 'admin'])->default('user');
             $table->timestamps();
         });
     }

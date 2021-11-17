@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Book extends Model
 {
+
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -13,7 +16,7 @@ class Book extends Model
      * @var array
      */
     protected $fillable = [
-        // TODO: Insert your fillable fields
+        'title', 'description', 'author', 'year', 'synopsis', 'stock'
     ];
 
     /**
@@ -22,6 +25,6 @@ class Book extends Model
      * @var array
      */
     protected $hidden = [
-        // TODO: Insert your hidden fields
+        'updated_at', 'created_at'
     ];
 }

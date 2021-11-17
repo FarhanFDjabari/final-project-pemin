@@ -18,23 +18,15 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'auth'], function () use ($router) {
-    $router->post('/register', function () {
-        // TODO: Routes this to the right controller
-    });
+    $router->post('/register', 'AuthController@register');
 
-    $router->post('/login', function () {
-        // TODO: Routes this to the right controller
-    });
+    $router->post('/login', 'AuthController@login');
 });
 
 $router->group(['prefix' => 'books'], function () use ($router) {
-    $router->get('/', function () {
-        // TODO: Routes this to the right controller
-    });
+    $router->get('/', 'BookController@index');
 
-    $router->get('/{bookId}', function () {
-        // TODO: Routes this to the right controller
-    });
+    $router->get('/{bookId}', 'BookController@getBookById');
 });
 
 $router->group(['middleware' => 'auth'], function () use ($router) {
@@ -53,35 +45,23 @@ $router->group(['middleware' => 'auth'], function () use ($router) {
     });
 
     $router->group(['prefix' => 'transactions'], function () use ($router) {
-        $router->get('/', function () {
-            // TODO: Routes this to the right controller
-        });
+        $router->get('/', 'TransactionController@getTransactions');
 
-        $router->get('/{transactionId}', function () {
-            // TODO: Routes this to the right controller
-        });
+        $router->get('/{transactionId}', 'TransactionController@getTransaction');
     });
 });
 
 $router->group(['middleware' => 'auth:admin'], function () use ($router) {
     $router->group(['prefix' => 'users'], function () use ($router) {
-        $router->get('/', function () {
-            // TODO: Routes this to the right controller
-        });
+        $router->get('/', 'UserController@users');
     });
 
     $router->group(['prefix' => 'books'], function () use ($router) {
-        $router->post('/', function () {
-            // TODO: Routes this to the right controller
-        });
+        $router->post('/', 'BookController@insertBook');
 
-        $router->put('/{bookId}', function () {
-            // TODO: Routes this to the right controller
-        });
+        $router->put('/{bookId}', 'BookController@updateBook');
 
-        $router->delete('/{bookId}', function () {
-            // TODO: Routes this to the right controller
-        });
+        $router->delete('/{bookId}', 'BookController@deleteBook');
     });
 
     $router->group(['prefix' => 'transactions'], function () use ($router) {
