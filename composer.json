@@ -1,7 +1,11 @@
 {
     "name": "laravel/lumen",
     "description": "The Laravel Lumen Framework.",
-    "keywords": ["framework", "laravel", "lumen"],
+    "keywords": [
+        "framework",
+        "laravel",
+        "lumen"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -38,7 +42,8 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "unittest": [
-            "php artisan migrate:refresh; php artisan db:seed; php ./vendor/bin/phpunit"
+            "Composer\\Config::disableProcessTimeout",
+            "php artisan migrate:fresh && php artisan db:seed && php ./vendor/bin/phpunit"
         ]
     }
 }

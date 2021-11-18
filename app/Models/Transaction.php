@@ -13,7 +13,7 @@ class Transaction extends Model
      * @var array
      */
     protected $fillable = [
-        // TODO: Insert your fillable fields
+        'book_id', 'user_id', 'deadline', 'updated_at', 'created_at'
     ];
 
     /**
@@ -21,7 +21,5 @@ class Transaction extends Model
      *
      * @var array
      */
-    protected $hidden = [
-        // TODO: Insert your hidden fields
-    ];
+    protected $hidden = ['user_id'];
 }
