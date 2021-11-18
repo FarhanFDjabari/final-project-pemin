@@ -43,7 +43,7 @@
         ],
         "unittest": [
             "Composer\\Config::disableProcessTimeout",
-            "php artisan migrate:refresh && php artisan db:seed && php ./vendor/bin/phpunit"
+            "php artisan migrate:fresh && php artisan db:seed && php ./vendor/bin/phpunit"
         ]
     }
 }

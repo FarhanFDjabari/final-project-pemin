@@ -40,7 +40,7 @@ class Authenticate
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next, $role = null)
     {
         $token = $request->header('Authorization');
         if (!$token) {
